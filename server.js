@@ -58,6 +58,9 @@ app.post("/afegirPregunta", (req, res) => {
     fileSystem(directorio, nombreArchivo, jsonFile);
     res.status(200).send();
 })
+app.post("/postRespostes", (req,res) => {
+    console.log(req.body);
+})
 app.put("/update/:id", async (req, res) => {
     jsonFile.preguntes.forEach(element => {
         if (element.id == req.params.id) {
