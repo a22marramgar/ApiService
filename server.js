@@ -60,7 +60,7 @@ app.post("/afegirPregunta", (req, res) => {
 })
 app.post("/postRespostes", (req,res) => {
     console.log(req.body);
-    
+    res.status(200).send();
 })
 app.put("/update/:id", async (req, res) => {
     jsonFile.preguntes.forEach(element => {
