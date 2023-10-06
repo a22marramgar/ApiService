@@ -64,12 +64,14 @@ app.post("/postRespostes", (req, res) => {
         if (err) {
             res.status(500).json({ error: 'No se pudo leer el json de respondidas' });
             return;
+        } else {
+            file = JSON.parse(data);
+            file.push(req.body);
+            fileSystem(directorio, "respondidas.json", file);
+            res.status(200).send();
         }
-        file = JSON.parse(data);
-        file.push(req.body);
-        fileSystem(directorio, "respondidas.json", file);
     })
-    res.status(200).send();
+
 })
 app.get("/getStats", (req, res) => {
     var spawn = require('child_process').spawn;
