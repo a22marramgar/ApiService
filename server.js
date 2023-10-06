@@ -58,18 +58,28 @@ app.post("/afegirPregunta", (req, res) => {
     fileSystem(directorio, nombreArchivo, jsonFile);
     res.status(200).send();
 })
-app.post("/postRespostes", (req,res) => {
+app.post("/postRespostes", (req, res) => {
     console.log(req.body);
-    fs.readFile("./assets/respondidas.json",'utf-8',(err,data) => {
-        if(err){
-            res.status(500).json({error: 'No se pudo leer el json de respondidas'});
+    fs.readFile("./assets/respondidas.json", 'utf-8', (err, data) => {
+        if (err) {
+            res.status(500).json({ error: 'No se pudo leer el json de respondidas' });
             return;
         }
         file = JSON.parse(data);
         file.push(req.body);
-        fileSystem(directorio,"respondidas.json",file);
+        fileSystem(directorio, "respondidas.json", file);
     })
     res.status(200).send();
+})
+app.get("/getStats", (req, res) => {
+    var spawn = require('child_process').spawn;
+
+    var process = spawn('python', ["./stats.py"])
+
+    process.stdout.on('data', (data) => {
+        console.log(data.toString());
+    })
+    res.status(200).send()
 })
 app.put("/update/:id", async (req, res) => {
     jsonFile.preguntes.forEach(element => {
