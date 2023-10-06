@@ -80,8 +80,8 @@ app.get("/getStats", (req, res) => {
 
     process.stdout.on('data', (data) => {
         console.log(data.toString());
+        res.send(data.toString());
     })
-    res.status(200).send()
 })
 app.put("/update/:id", async (req, res) => {
     jsonFile.preguntes.forEach(element => {
