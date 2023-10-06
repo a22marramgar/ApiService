@@ -82,6 +82,9 @@ app.get("/getStats", (req, res) => {
         console.log(data.toString());
         res.send(data.toString());
     })
+    process.stderr.on('data',(data) =>{
+        console.log("Error: "+data)
+    })
 })
 app.put("/update/:id", async (req, res) => {
     jsonFile.preguntes.forEach(element => {
