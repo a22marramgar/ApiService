@@ -90,7 +90,8 @@ app.get("/getStats", (req, res) => {
                 }, },
                 (error, response, body) => {
                   if (error || response.statusCode !== 200) {
-                    return res.status(500).json({ type: 'error', message: error.message });
+                    console.log(error)
+                    return res.status(500).json({ type: 'error', message: error });
                   }
                   res.json(JSON.parse(body));
                 }
