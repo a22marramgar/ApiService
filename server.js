@@ -81,12 +81,15 @@ app.get("/getStats", (req, res) => {
             return;
         } else {
             //Pruebas para crear otra api de python
-            fetch("/create-stats", {
+            fetch(pythonURL+"/create-stats", {
                 method: "POST",
-                mode: "no-cors",
+                mode: "cors",
+                cache: "no-cache",
+                credentials: "same-origin",
                 headers: {
                     "Content-Type": "application/json",
                 },
+                referrerPolicy: "no-referrer",
                 body: data
             }).then((response) => response.json().then((data) => {
                 console.log(data)
