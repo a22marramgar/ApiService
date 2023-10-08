@@ -70,13 +70,6 @@ app.post("/postRespostes", (req, res) => {
             file = JSON.parse(data);
             file.push(req.body);
             fileSystem(directorio, "respondidas.json", file);
-            fs.readFile("./respondidas.json", 'utf-8', (err, data) => {
-                if (err) {
-                    res.status(500).json({ error: 'No se pudo leer el json de respondidas' });
-                    return;
-                } else {
-                    console.log(data)
-                }})
             res.status(200).send();
         }
     })
