@@ -5,6 +5,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
+const pythonURL = "https://apipython-wha3.onrender.com"
 
 //File system
 const fileSystem = require('./fileSystem.js');
@@ -60,7 +61,7 @@ app.post("/afegirPregunta", (req, res) => {
 })
 app.post("/postRespostes", (req, res) => {
     console.log(req.body);
-    fs.readFile("./assets/respondidas.json", 'utf-8', (err, data) => {
+    fs.readFile("./respondidas.json", 'utf-8', (err, data) => {
         if (err) {
             res.status(500).json({ error: 'No se pudo leer el json de respondidas' });
             return;
@@ -74,16 +75,28 @@ app.post("/postRespostes", (req, res) => {
 
 })
 app.get("/getStats", (req, res) => {
-    var spawn = require('child_process').spawn;
-
-    var process = spawn('python', ["./stats.py"])
-
-    process.stdout.on('data', (data) => {
-        console.log(data.toString());
-        res.send(data.toString());
-    })
-    process.stderr.on('data',(data) =>{
-        console.log("Error: "+data)
+    fs.readFile("./respondidas.json", 'utf-8', (err, data) => {
+        if (err) {
+            res.status(500).json({ error: err });
+            return;
+        } else {
+            //Pruebas para crear otra api de python
+            fetch("/create-stats", {
+                method: "POST",
+                mode: "cors",
+                cache: "no-cache",
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                referrerPolicy: "no-referrer",
+                body: data
+            }).then((response) => response.json().then((data) => {
+                console.log(data)
+                res.status(200).json(data);
+            }))
+            
+        }
     })
 })
 app.put("/update/:id", async (req, res) => {
