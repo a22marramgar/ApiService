@@ -1,6 +1,7 @@
 const fs = require('fs');
 //App def
 const express = require('express');
+const request = require('request');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -80,8 +81,22 @@ app.get("/getStats", (req, res) => {
             res.status(500).json({ error: err });
             return;
         } else {
-            //Pruebas para crear otra api de python
-            fetch(pythonURL+"/create-stats", {
+            request(
+                { url: pythonURL+"/create-stats", 
+                method: "POST", 
+                body: data, 
+                headers: {
+                    "Content-Type": "application/json",
+                }, },
+                (error, response, body) => {
+                  if (error || response.statusCode !== 200) {
+                    return res.status(500).json({ type: 'error', message: err.message });
+                  }
+                  res.json(JSON.parse(body));
+                }
+              )
+            
+            /*fetch(pythonURL+"/create-stats", {
                 method: "POST",
                 mode: "cors",
                 cache: "no-cache",
@@ -94,7 +109,7 @@ app.get("/getStats", (req, res) => {
             }).then((response) => response.json().then((data) => {
                 console.log(data)
                 res.status(200).json(data);
-            }))
+            }))*/
             
         }
     })
