@@ -239,6 +239,198 @@
             ],
             "resposta_correcta": 4,
             "imatge": "https://4.bp.blogspot.com/_XLd94lk9nHo/TREpFFLqABI/AAAAAAAAAN8/HYIU9OQBQrI/s1600/Monstruos_SA.jpg"
+        },
+        {
+            "id": 11,
+            "pregunta": "Jurassic Park",
+            "respostes": [
+                {
+                    "id": 1,
+                    "any": "1984"
+                },
+                {
+                    "id": 2,
+                    "any": "1997"
+                },
+                {
+                    "id": 3,
+                    "any": "2000"
+                },
+                {
+                    "id": 4,
+                    "any": "1993"
+                }
+            ],
+            "resposta_correcta": "4",
+            "imatge": "https://static.posters.cz/image/1300/posters/jurassic-park-i75969.jpg"
+        },
+        {
+            "id": 12,
+            "pregunta": "Avatar",
+            "respostes": [
+                {
+                    "id": 1,
+                    "any": "2003"
+                },
+                {
+                    "id": 2,
+                    "any": "2013"
+                },
+                {
+                    "id": 3,
+                    "any": "2009"
+                },
+                {
+                    "id": 4,
+                    "any": "2007"
+                }
+            ],
+            "resposta_correcta": "3",
+            "imatge": "https://es.web.img3.acsta.net/medias/nmedia/18/92/13/82/20182449.jpg"
+        },
+        {
+            "id": 13,
+            "pregunta": "Iron man",
+            "respostes": [
+                {
+                    "id": 1,
+                    "any": "2013"
+                },
+                {
+                    "id": 2,
+                    "any": "2015"
+                },
+                {
+                    "id": 3,
+                    "any": "2012"
+                },
+                {
+                    "id": 4,
+                    "any": "2008"
+                }
+            ],
+            "resposta_correcta": "4",
+            "imatge": "https://i.blogs.es/a48e71/iron-20man-20es-20internacional/450_1000.jpg"
+        },
+        {
+            "id": 14,
+            "pregunta": "Jurassic World",
+            "respostes": [
+                {
+                    "id": 1,
+                    "any": "2015"
+                },
+                {
+                    "id": 2,
+                    "any": "2018"
+                },
+                {
+                    "id": 3,
+                    "any": "2010"
+                },
+                {
+                    "id": 4,
+                    "any": "2011"
+                }
+            ],
+            "resposta_correcta": "1",
+            "imatge": "https://m.media-amazon.com/images/I/91Q0JeYooEL._AC_UF894,1000_QL80_.jpg"
+        },
+        {
+            "id": 15,
+            "pregunta": "1917",
+            "respostes": [
+                {
+                    "id": 1,
+                    "any": "1917"
+                },
+                {
+                    "id": 2,
+                    "any": "2019"
+                },
+                {
+                    "id": 3,
+                    "any": "2016"
+                },
+                {
+                    "id": 4,
+                    "any": "2014"
+                }
+            ],
+            "resposta_correcta": "2",
+            "imatge": "https://m.media-amazon.com/images/I/71xkQk77OeL.jpg"
+        },
+        {
+            "id": 16,
+            "pregunta": "La vida es bella",
+            "respostes": [
+                {
+                    "id": 1,
+                    "any": "1991"
+                },
+                {
+                    "id": 2,
+                    "any": "1994"
+                },
+                {
+                    "id": 3,
+                    "any": "1997"
+                },
+                {
+                    "id": 4,
+                    "any": "2000"
+                }
+            ],
+            "resposta_correcta": "3",
+            "imatge": "https://www.premiosgoya.com/wp-content/uploads/2015/12/LA-VIDA-ES-BELLA-2.jpg"
+        },
+        {
+            "id": 17,
+            "pregunta": "Toy Story 1",
+            "respostes": [
+                {
+                    "id": 1,
+                    "any": "1995"
+                },
+                {
+                    "id": 2,
+                    "any": "2004"
+                },
+                {
+                    "id": 3,
+                    "any": "2000"
+                },
+                {
+                    "id": 4,
+                    "any": "1999"
+                }
+            ],
+            "resposta_correcta": "1",
+            "imatge": "https://ae01.alicdn.com/kf/S5227408a56ca41c7b6edc5fa3a906570x.jpg_640x640q90.jpg"
+        },
+        {
+            "id": 18,
+            "pregunta": "The terminator",
+            "respostes": [
+                {
+                    "id": 1,
+                    "any": "1977"
+                },
+                {
+                    "id": 2,
+                    "any": "1984"
+                },
+                {
+                    "id": 3,
+                    "any": "1991"
+                },
+                {
+                    "id": 4,
+                    "any": "2005"
+                }
+            ],
+            "resposta_correcta": "2",
+            "imatge": "https://www.phenomena-experience.com/galeria/img_film/film_13539177181.jpeg"
         }
     ]
 }
