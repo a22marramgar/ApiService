@@ -29,12 +29,28 @@ app.get("/getPreguntes", (req, res) => {
 
         try {
             jsonFile = JSON.parse(data);
+            if(req.query.random != null && req.query.random=='true'){
+                jsonFile.preguntes = shuffle(jsonFile.preguntes)
+            }
+            if(req.query.number != null){
+                jsonFile.preguntes = jsonFile.preguntes.slice(0,req.query.number)
+            }
             res.json(jsonFile);
         } catch (parseError) {
             res.status(500).json({ error: 'Error al analizar el archivo JSON.' });
         }
     });
 })
+function shuffle(sourceArray) {
+    for (var i = 0; i < sourceArray.length - 1; i++) {
+        var j = i + Math.floor(Math.random() * (sourceArray.length - i));
+
+        var temp = sourceArray[j];
+        sourceArray[j] = sourceArray[i];
+        sourceArray[i] = temp;
+    }
+    return sourceArray;
+}
 app.post("/afegirPregunta", (req, res) => {
     jsonFile.preguntes.push({
         id: (jsonFile.preguntes.length + 1),
@@ -61,7 +77,6 @@ app.post("/afegirPregunta", (req, res) => {
     res.status(200).send();
 })
 app.post("/postRespostes", (req, res) => {
-    console.log(req.body);
     fs.readFile("./respondidas.json", 'utf-8', (err, data) => {
         if (err) {
             res.status(500).json({ error: 'No se pudo leer el json de respondidas' });
@@ -69,7 +84,14 @@ app.post("/postRespostes", (req, res) => {
         } else {
             file = JSON.parse(data);
             file.push(req.body);
-            fileSystem(directorio, "respondidas.json", file);
+            console.log(file)
+            fs.writeFile("./respondidas.json",JSON.stringify(file), (err) =>{
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("Texto escrito correctamente en el archivo.");
+                }
+            })
             res.status(200).send();
         }
     })
